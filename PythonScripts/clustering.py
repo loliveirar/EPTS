@@ -35,5 +35,19 @@ plt.xlabel('Longitud')
 plt.ylabel('Latitud')
 plt.show()
 
+#Add this section to show cluster centroids
+centroides = kmeans.cluster_centers_
 
+# Draw graph with centroids
+plt.scatter(df['lon'], df['lat'], c=df['cluster'], cmap='viridis', label='Puntos')
+plt.scatter(centroides[:, 0], centroides[:, 1], marker='x', s=100, color='red', label='Centroides')
+plt.title('Clustering de Coordenadas con Centroides')
+plt.xlabel('Longitud')
+plt.ylabel('Latitud')
+plt.legend()
+plt.show()
 
+# Show centroids numeric value
+print("Valores numéricos de los centroides:")
+for i, centroide in enumerate(centroides):
+    print("Centroide {}: Longitud = {:.6f}, Latitud = {:.6f}".format(i+1, centroide[0], centroide[1]))
