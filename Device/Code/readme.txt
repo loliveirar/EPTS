@@ -1,0 +1,1 @@
+P2.ino is an example to download stored data from the SD to computer.
